@@ -6,7 +6,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 import './index.css';
 import App from './App';
-import ProductsProvider from './context/products-context';
+import configureProvider from './hooks-store/products-store';
+// import ProductsProvider from './context/products-context';
 // import productReducer from './store/reducers/products';
 
 // const rootReducer = combineReducers({
@@ -14,14 +15,15 @@ import ProductsProvider from './context/products-context';
 // });
 
 // const store = createStore(rootReducer);
-
+configureProvider();
+const rootElement = document.querySelector('#root');
 ReactDOM.render(
   // <Provider store={store}>
-  <ProductsProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </ProductsProvider>,
+  // <ProductsProvider>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  // </ProductsProvider >
   // </Provider>
-  document.getElementById('root')
+  rootElement
 );
